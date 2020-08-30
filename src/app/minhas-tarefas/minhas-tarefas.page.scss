@@ -1,0 +1,15 @@
+
+.pendente{
+    background: rgb(251,224,63);
+    background: radial-gradient(circle, rgba(251,224,63,1) 0%, rgba(255,226,130,0.9108018207282913) 59%, rgba(255, 238, 193, 0.919) 100%);
+}
+
+.atrasado{
+    background: rgb(251,63,63);
+background: radial-gradient(circle, rgba(251,63,63,1) 0%, rgba(255,161,130,0.9108018207282913) 59%, rgba(255,221,204,0.9192051820728291) 100%);
+}
+
+.finalizado{
+    background: rgb(76,251,63);
+    background: radial-gradient(circle, rgba(76,251,63,1) 0%, rgba(139,255,130,0.9108018207282913) 59%, rgba(193, 255, 206, 0.919) 100%);
+}

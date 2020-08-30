@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="9" center>
+          <ion-title style="height: 100%;"><b>Tarefa</b></ion-title>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button  fill="outline" shape="round" (click)="close()"  size="medium"><ion-icon name="close-outline" ></ion-icon></ion-button>          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="enviarTarefa()">
+    <ion-item>
+      <ion-label position="floating">Titulo</ion-label>
+      <ion-input type="text" [(ngModel)]="tarefa.nome" name="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descrição</ion-label>
+      <ion-input type="text" [(ngModel)]="tarefa.descricao" name="descricao"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Data Final</ion-label>
+      <ion-datetime displayFormat="DD MMM, YYYY"  picker-format="YYYY-MM-DD" [(ngModel)]="tarefa.dataFinal" name="dataFinal"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Hora Final</ion-label>
+      <ion-datetime displayFormat="HH:mm A"  picker-format="HH:mma" [(ngModel)]="tarefa.dataFinal" name="dataFinal"></ion-datetime>
+    </ion-item>
+    <ion-button shape="round" type="submit" style="width: 100%;" >Salvar</ion-button>
+  </form>
+</ion-content>

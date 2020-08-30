@@ -1,0 +1,48 @@
+
+<ion-content >
+  <ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" class="ion-align-self-center" style="text-align: center;">
+          <ion-button color="primary" shape="round" (click)="back()" size="small"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+        </ion-col>
+        <ion-col size="6" class="ion-align-self-center" style="text-align: center;">
+          <ion-label style="text-align: center;"><b>Dia {{dia}} </b></ion-label>
+         
+        </ion-col>
+        <ion-col size="3" class="ion-align-self-center" style="text-align: center;">
+          <ion-button color="primary" shape="round" (click)="next()" size="small"><ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="presentModalEdit('new',0)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list lines="none">
+    <ion-item *ngFor="let item of itens" style="padding: 5px;">
+      <!-- <div style="width: 100%;" [ngStyle]="testeHora(item.dataExecucao,item.status)"> -->
+        <ion-grid [ngClass]="testeHora(item.dataFinal,item.status)" style="padding: 10px; border-radius: 10px;">
+          <ion-row>
+            <ion-col size="8" class="ion-align-self-center">
+              <ion-label text-wrap style="font-family: Comic Sans MS, Comic Sans, cursive;font-size: large;" ><b>{{item.nome}}</b></ion-label>
+              <ion-label >{{item.dataFinal | date:'dd/MM HH:mm'}}</ion-label>
+            </ion-col>
+            <ion-col size="2" class="ion-align-self-center">
+              <ion-button color="light" shape="round" (click)="presentModalEdit('edit',item.id)"  size="small"><ion-icon name="arrow-redo-outline"></ion-icon></ion-button>
+            </ion-col>
+            <ion-col *ngIf="item.status != 'EXECUTADO'" size="2" class="ion-align-self-center">
+              <ion-button color="primary" shape="round" (click)="fecharTarefa(item.id)" size="small"><ion-icon name="checkmark-outline"></ion-icon></ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      <!-- </div> -->
+    </ion-item>
+  </ion-list>
+</ion-content>
